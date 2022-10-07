@@ -1,0 +1,14 @@
+{
+  "autoload": {
+    "psr-4": {
+      "App\\": "src/App"
+    }
+  },
+  "authors": [
+    {
+      "name": "Natalya Babenko",
+      "email": "natapervomaisk88@gmail.com"
+    }
+  ],
+  "require": {}
+}
