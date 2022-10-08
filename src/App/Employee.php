@@ -6,6 +6,7 @@ class Employee
     private string $name;
     private int $age;
     private float $salary;
+    private const MAX_AGE = 18;
 
     public function __construct(string $name, int $age, float $salary)
     {
@@ -31,7 +32,7 @@ class Employee
 
     public function checkAge() : bool
     {
-        if($this->age > 18)
+        if($this->age > self::MAX_AGE)
             return true;
         return false;
     }
