@@ -6,7 +6,16 @@ class Employee
     private string $name;
     private int $age;
     private float $salary;
+    private const MIN = 1;
+    private const MAX = 100;
     private const MAX_AGE = 18;
+
+    private function isAgeCorrect() : bool
+    {
+        if($this->age>=self::MIN && $this->age<=self::MAX)
+            return true;
+        return false;
+    }
 
     public function __construct(string $name, int $age, float $salary)
     {
@@ -25,9 +34,26 @@ class Employee
         return $this->age;
     }
 
-    public function getSalary() : float
+    public function getSalary() : string
     {
-        return $this->salary;
+        return $this->salary . '$';
+    }
+
+    
+    public function setName(string $name) : void
+    {
+        $this->name = $name;
+    }
+
+    public function setAge(int $age) : void
+    {
+        if($this->isAgeCorrect())
+            $this->age = $age;
+    }
+
+    public function setSalary(float $salary) : void
+    {
+        $this->salary = $salary;
     }
 
     public function checkAge() : bool
