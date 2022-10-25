@@ -4,13 +4,13 @@ namespace App;
 class Employee
 {
     private string $name;
-    private int $age;
+    private string $surname;
     private float $salary;
 
-    public function __construct(string $name, int $age, float $salary)
+    public function __construct(string $name, string $surname, float $salary)
     {
         $this->name = $name;
-        $this->age = $age;
+        $this->surname = $surname;
         $this->salary = $salary;
     }
 
@@ -19,26 +19,19 @@ class Employee
         return $this->name;
     }
 
-    public function getAge() : int
+    public function getSurname() : string
     {
-        return $this->age;
+        return $this->surname;
     }
 
-    public function getSalary() : float
+    public function getSalary() : string
     {
-        return $this->salary;
+        return $this->salary . '$';
     }
 
-    public function checkAge() : bool
+    public function setSalary(float $salary) : void
     {
-        if($this->age > 18)
-            return true;
-        return false;
-    }
-
-    public function doubleSalary() : float
-    {
-        return $this->salary*2;
+        $this->salary = $salary;
     }
 }
 ?>
