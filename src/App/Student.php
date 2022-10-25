@@ -25,7 +25,7 @@ class Student
 
     public function transferToNextCourse() : void
     {
-        if($this->isTranslatable())
+        if(($this->course >= 1) && ($this->course <= self::MAX_COURSE-1)) //перевірка чи можна переводити студента на інший курс
         {
             $this->course++;
         }

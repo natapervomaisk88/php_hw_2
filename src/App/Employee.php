@@ -4,23 +4,13 @@ namespace App;
 class Employee
 {
     private string $name;
-    private int $age;
+    private string $surname;
     private float $salary;
-    private const MIN = 1;
-    private const MAX = 100;
-    private const MAX_AGE = 18;
 
-    private function isAgeCorrect() : bool
-    {
-        if($this->age>=self::MIN && $this->age<=self::MAX)
-            return true;
-        return false;
-    }
-
-    public function __construct(string $name, int $age, float $salary)
+    public function __construct(string $name, int $surname, float $salary)
     {
         $this->name = $name;
-        $this->age = $age;
+        $this->surname = $surname;
         $this->salary = $salary;
     }
 
@@ -29,9 +19,9 @@ class Employee
         return $this->name;
     }
 
-    public function getAge() : int
+    public function getSurname() : string
     {
-        return $this->age;
+        return $this->surname;
     }
 
     public function getSalary() : string
@@ -39,33 +29,9 @@ class Employee
         return $this->salary . '$';
     }
 
-    
-    public function setName(string $name) : void
-    {
-        $this->name = $name;
-    }
-
-    public function setAge(int $age) : void
-    {
-        if($this->isAgeCorrect())
-            $this->age = $age;
-    }
-
     public function setSalary(float $salary) : void
     {
         $this->salary = $salary;
-    }
-
-    public function checkAge() : bool
-    {
-        if($this->age > self::MAX_AGE)
-            return true;
-        return false;
-    }
-
-    public function doubleSalary() : float
-    {
-        return $this->salary*2;
     }
 }
 ?>
