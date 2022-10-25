@@ -7,7 +7,7 @@ class Employee
     private string $surname;
     private float $salary;
 
-    public function __construct(string $name, int $surname, float $salary)
+    public function __construct(string $name, string $surname, float $salary)
     {
         $this->name = $name;
         $this->surname = $surname;
