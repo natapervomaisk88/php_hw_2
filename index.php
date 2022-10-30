@@ -1,33 +1,31 @@
 <?php
-declare(strict_types=1);
-namespace App;
 require_once __DIR__ . '/vendor/autoload.php';
-use App\Employee;
+use App\City;
+use App\Arr;
 use App\User;
-use App\Rectangle;
 
+$arr = new Arr();
+$arr->add([1,2,3]); //додаємо дані до масиву
+$arr->add([5,6]); 
+echo 'Середнє арифметичне значення: ' . $arr->getAvg() . '<br>'; //отримуємо середнє значення
 
-$employee1 = new Employee('John', 25, 1000);
-$employee2 = new Employee('Eric', 26, 2000);
+$city = new City('Odessa', '1794', 750000);
+$props = ['name', 'foundation', 'population'];
+foreach($props as $p)
+{
+    echo 'Property: ' . $p . '. Value: ' . $city->$p . '<br>';
+}
 
-echo  "Сума зарплат користувачів: " . $employee1->getSalary() + $employee2->getSalary() . "<br>";
-echo  "Сума віку користувачів: " . $employee1->getAge() + $employee2->getAge();
+//created objects of class User and the array of properties
+$user = new User('Богдан', 'Степанов', 'Дмитрович', 30);
+$props = ['name', 'surname', 'patronymic', 'age'];
 
-$empl1 = new Employee("Petro", 25, 1500);
-$empl2 = new Employee("Stepan", 27, 2500);
+echo 'Property: ' . $props[1] . '. Value: ' . $user->{$props[1]} . '<br>';
 
-$totalSalary = $empl1->getSalary()+$empl2->getSalary();
-echo "Total salary: $totalSalary<br>";
-
-$user = new User("john", 19);
-$user->setAge(30);
-echo "Class User <br>";
-echo "Age: " .  $user->getAge() . "<br>";
-
-echo "Rectangle: <br>";
-$rect = new Rectangle(12,4);
-echo "S: " . $rect->getSquare() . "<br>";
-echo "P: " . $rect->getPerimeter() . "<br>";
-
+$methods = ['method1' => 'getName', 'method2' => 'getAge', 'method3' => 'getSurname'];
+echo '<br>';
+echo  $user->{$methods['method1']}() . '<br>';
+echo  $user->{$methods['method2']}() . '<br>';
+echo  $user->{$methods['method3']}() . '<br>';
 
 ?>

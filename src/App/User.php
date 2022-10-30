@@ -4,22 +4,41 @@ namespace App;
 class User
 {
     private string $name;
+    private string $surname;
     private int $age;
-    private const MAX_AGE = 18;
+    private string $patronymic;
 
-    public function __construct(string $name, int $age)
+    //конструктор, магічний метод, викликається при створені об'єкту
+    public function __construct(string $name, string $surname, string $patronymic, int $age)
     {
         $this->name = $name;
+        $this->surname = $surname;
+        $this->patronymic = $patronymic;
         $this->age = $age;
     }
-    public function getAge() : int
+
+    //аксессор, магічний метод для встановлення значень для приватних властивостей
+    public function __get($name)
+    {
+        if (isset($this->$name)) {
+            return $this->$name;
+        }
+    }
+
+    public function getName(): string
+    {
+        return $this->name;
+    }
+    
+
+    public function getSurname(): string
+    {
+        return $this->surname;
+    }
+
+    public function getAge(): int
     {
         return $this->age;
-    }
-    public function setAge(int $age) : void
-    {
-        if($this->age>self::MAX_AGE)
-            $this->age = $age;
     }
 }
 ?>
